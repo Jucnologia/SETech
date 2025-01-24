@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./frameworks/add_ons/bootstrap5/css/bootstrap.min.css">
+    <script src="./frameworks/add_ons/bootstrap5/js/jquery.min.js"></script>
+    <script src="./frameworks/add_ons/bootstrap5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./frameworks/add_ons/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="./frameworks/add_ons/fontawesome/css/brands.css">
+    <link rel="stylesheet" href="./frameworks/add_ons/fontawesome/css/solid.css">
+    <link rel="stylesheet" href="./frameworks/add_ons/radiodesign.css">
+    <script type="text/javascript" src="./frameworks/add_ons/JQuery/Jquery-3.1.1.js"></script>
+    <script src="./frameworks/add_ons/JQuery/jquery.min.js"></script>
+    <title>SecureSight Tech. - Snake-Spiel</title>
+    <style>
+        .navbar-custom {
+            background-color: rgb(65, 166, 54);
+        }
+        .navbar-custom .nav-link {
+            color: white;
+        }
+        .navbar-custom .nav-link:hover {
+            color: lightgray;
+        }
+        .navbar-custom .navbar-brand img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+        .navbar-brand {
+            height: 50px;
+        }
+        .carousel-container {
+            max-width: 720px;
+            max-height: 480px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+        }
+        #Headline {
+            font-family: Impact;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .fade-in-start {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        .show {
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+        }
+        .card1, .card2, .card3 {
+            font-family: Arial;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .table-section {
+            background-color: #252525;
+            color: rgb(167, 163, 163);
+            padding: 20px;
+        }
+        .table-section .row {
+            margin-bottom: 15px;
+        }
+        .table-section .col-md-4 {
+            border-left: 1px solid rgb(173, 172, 172);
+            padding-left: 15px;
+        }
+        .table-section .col-md-4:first-child {
+            border-left: none;
+        }
+        .table-section p {
+            border-bottom: 1px solid rgb(109, 108, 108);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .table-section p:last-child {
+            border-bottom: none;
+        }
+
+        /* Snake game styles */
+        #gameCanvas {
+            background-color: black;
+            display: block;
+            margin: 20px auto;
+            border: 2px solid white;
+        }
+        #startButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #startButton:hover {
+            background-color: darkgreen;
+        }
+        #controlInstructions {
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
+        }
+        #controlInstructions p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="./images/SELogo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Suche" aria-label="Suche" >
+                <button class="btn btn-outline-light" type="submit">Suchen</button>
+            </form>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Minispiele.html">Minispiele</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Shop.html" target="_blank">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Informationen.html">Informationen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Team.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Kontakt.html">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="Headline">
+        <h1>Snake</h1>
+    </div>
+
+    <div>
+        <button id="startButton">Starten</button>
+        <canvas id="gameCanvas" width="600" height="600"></canvas>
+    </div>    
+
+    <div id="controlInstructions">
+        <p><strong>Steuerung:</strong></p>
+        <p>Benutze die Tasten <strong>W</strong> (nach oben), <strong>A</strong> (nach links), <strong>S</strong> (nach unten) und <strong>D</strong> (nach rechts) zum Steuern der Schlange.</p>
+        <p>Das Spiel startet, sobald du auf "Starten" klickst.</p>
+    </div>
+
+    <section class="table-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Kontakt</h5>
+                    <p>Justin Kristen</p>
+                    <p>E-Mail: j.kristen@iwm.rwth-aachen.de</p>
+                    <p>Tel.: 0231 137218</p>
+                    <p>Fax.: 0231 137219</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Support</h5>
+                    <p>E-Mail: support@SESight.de</p>
+                    <p>Tel.: 0231 137218</p>
+                    <p>Fax.: 0231 137219</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Rechtliches</h5>
+                    <p>Dies ist nur eine Projektseite</p>
+                    <p>Diese Seite verkauft keine Produkte</p>
+                    <p>Diese Seite dient nur zu privaten Testzwecken</p>
+                    <p>Potenziell verweist diese Seite auf Domänen im Ausland</p>
+                    <p>Diese Seite bietet keine realen Produkte an</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Snake-Spiel Logik
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const gridSize = 20;
+        const canvasSize = 600;
+        let snake, direction, food, score;
+
+        function resetGame() {
+            snake = [{ x: 160, y: 200 }];
+            direction = "RIGHT";
+            score = 0;
+            food = generateFood();
+        }
+
+        function startGame() {
+            resetGame();
+            document.getElementById("startButton").style.display = "none"; // Verstecke den Start-Button
+            setInterval(gameLoop, 100);
+        }
+
+        function gameLoop() {
+            moveSnake();
+            if (checkCollision()) {
+                alert("Game Over! Deine Punktzahl: " + score);
+                resetGame();
+                document.getElementById("startButton").style.display = "block"; // Zeige den Start-Button wieder
+                return;
+            }
+            if (eatFood()) {
+                score++;
+                snake.push({ ...snake[snake.length - 1] }); // Schlange wächst um den Punkt, den sie frisst
+                food = generateFood();
+            }
+            clearCanvas();
+            drawSnake();
+            drawFood();
+            drawScore();
+        }
+
+        function moveSnake() {
+            const head = { ...snake[0] };
+            if (direction === "UP") head.y -= gridSize;
+            if (direction === "DOWN") head.y += gridSize;
+            if (direction === "LEFT") head.x -= gridSize;
+            if (direction === "RIGHT") head.x += gridSize;
+
+            snake.unshift(head);
+            snake.pop();
+        }
+
+        function checkCollision() {
+            const head = snake[0];
+            if (head.x < 0 || head.x >= canvasSize || head.y < 0 || head.y >= canvasSize) {
+                return true;
+            }
+            for (let i = 1; i < snake.length; i++) {
+                if (head.x === snake[i].x && head.y === snake[i].y) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function eatFood() {
+            const head = snake[0];
+            return head.x === food.x && head.y === food.y;
+        }
+
+        function generateFood() {
+            const x = Math.floor(Math.random() * (canvasSize / gridSize)) * gridSize;
+            const y = Math.floor(Math.random() * (canvasSize / gridSize)) * gridSize;
+            return { x, y };
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvasSize, canvasSize);
+        }
+
+        function drawSnake() {
+            ctx.fillStyle = "green";
+            for (let i = 0; i < snake.length; i++) {
+                ctx.fillRect(snake[i].x, snake[i].y, gridSize, gridSize);
+            }
+        }
+
+        function drawFood() {
+            ctx.fillStyle = "red";
+            ctx.fillRect(food.x, food.y, gridSize, gridSize);
+        }
+
+        function drawScore() {
+            ctx.fillStyle = "white";
+            ctx.font = "20px Arial";
+            ctx.fillText("Punkte: " + score, 10, 20);
+        }
+
+        document.getElementById("startButton").addEventListener("click", startGame);
+
+        // WASD-Steuerung
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "w" && direction !== "DOWN") direction = "UP";
+            if (e.key === "s" && direction !== "UP") direction = "DOWN";
+            if (e.key === "a" && direction !== "RIGHT") direction = "LEFT";
+            if (e.key === "d" && direction !== "LEFT") direction = "RIGHT";
+        });
+    </script>
+</body>
+</html>

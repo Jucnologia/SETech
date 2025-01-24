@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./frameworks/add_ons/bootstrap5/css/bootstrap.min.css">
+    <script src="./frameworks/add_ons/bootstrap5/js/jquery.min.js"></script>
+    <script src="./frameworks/add_ons/bootstrap5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./frameworks/add_ons/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="./frameworks/add_ons/fontawesome/css/brands.css">
+    <link rel="stylesheet" href="./frameworks/add_ons/fontawesome/css/solid.css">
+    <link rel="stylesheet" href="./frameworks/add_ons/radiodesign.css">
+    <script type="text/javascript" src="./frameworks/add_ons/JQuery/Jquery-3.1.1.js"></script>
+    <script src="./frameworks/add_ons/JQuery/jquery.min.js"></script>
+    <title>SecureSight Tech. - Shop</title>
+    <style>
+        .navbar-custom {
+            background-color: rgb(65, 166, 54);
+        }
+        .navbar-custom .nav-link {
+            color: white;
+        }
+        .navbar-custom .nav-link:hover {
+            color: lightgray;
+        }
+        .navbar-custom .navbar-brand img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+        .navbar-brand {
+            height: 50px;
+        }
+        .carousel-container {
+            max-width: 720px;
+            max-height: 480px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+        }
+        #Headline {
+            font-family: Impact;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .fade-in-start {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        .show {
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+        }
+        .card1, .card2, .card3 {
+            font-family: Arial;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .table-section {
+            background-color: #252525;
+            color: rgb(167, 163, 163);
+            padding: 20px;
+        }
+        .table-section .row {
+            margin-bottom: 15px;
+        }
+        .table-section .col-md-4 {
+            border-left: 1px solid rgb(173, 172, 172);
+            padding-left: 15px;
+        }
+        .table-section .col-md-4:first-child {
+            border-left: none;
+        }
+        .table-section p {
+            border-bottom: 1px solid rgb(109, 108, 108);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .table-section p:last-child {
+            border-bottom: none;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="./images/SELogo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Suche" aria-label="Suche" >
+                <button class="btn btn-outline-light" type="submit">Suchen</button>
+            </form>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Minispiele.html">Minispiele</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Shop.html" target="_blank">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Informationen.html">Informationen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Team.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Kontakt.html">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="Headline">
+        <h1>Team</h1>
+    </div>
+    
+    <div>
+       
+    </div>    
+
+    <section class="table-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Kontakt</h5>
+                    <p>Justin Kristen</p>
+                    <p>E-Mail: j.kristen@iwm.rwth-aachen.de</p>
+                    <p>Tel.: 0231 137218</p>
+                    <p>Fax.: 0231 137219</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Support</h5>
+                    <p>E-Mail: support@SESight.de</p>
+                    <p>Tel.: 0231 137218</p>
+                    <p>Fax.: 0231 137219</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Rechtliches</h5>
+                    <p>Dies ist nur eine Projektseite</p>
+                    <p>Diese Seite verkauft keine Produkte</p>
+                    <p>Diese Seite dient nur zu privaten Testzwecken</p>
+                    <p>Potenziell verweist diese Seite auf Domänen im Ausland</p>
+                    <p>Diese Seite bietet keine realen Produkte an</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll('.fade-in-start');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('show');
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
